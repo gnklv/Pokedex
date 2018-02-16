@@ -1,0 +1,35 @@
+.l-section {
+	padding-top: @section-ofset;
+	padding-bottom: @section-ofset;
+}
+
+.l-section--main {
+	padding-top: @section-main-xs-pt;
+	padding-bottom: @section-main-xs-pb;
+
+	@media screen and (max-width: @screen-lg) {
+		padding-top: @section-main-lg-pt;
+		padding-bottom: @section-main-lg-pb;
+	}
+
+	@media screen and (max-width: @screen-md) {
+		padding-top: @section-main-md-pt;
+		padding-bottom: @section-main-md-pb;
+	}
+}
+
+.l-section--sec {
+	padding-bottom: @section-main-xs-pb;
+
+	@media screen and (max-width: @screen-lg) {
+		padding-bottom: @section-main-lg-pb;
+	}
+
+	@media screen and (max-width: @screen-md) {
+		padding-bottom: @section-main-md-pb;
+	}
+}
+
+.l-section--bg {
+	background-color: @bg-color;
+}

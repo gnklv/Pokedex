@@ -1,0 +1,420 @@
+.c-pokemon {
+
+	&__list {
+		position: relative;
+		padding: 0 @grid-gutter-width/2 25px;
+		background: #FC2243;
+		overflow-x: hidden;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			height: 30px;
+			background: #D50625;
+		}
+	}
+	
+	&__header {
+		position: relative;
+		width: 145px;
+		height: 65px;
+		margin-left: -@grid-gutter-width/2;
+		margin-bottom: 25px;
+		background-color: #D50625;
+		border-bottom-right-radius: 50px;
+	}
+
+	&__btn {
+
+    &-lg {
+    	background: white;
+	    border-radius: 50%;
+	    width: 50px;
+	    height: 50px;
+	    display: block;
+	    margin: auto;
+	    position: absolute;
+	    top: 10%;
+	    left: 5%;
+	    z-index: 2;
+
+	    &::after {
+	    	content: '';
+	    	background: #71CDF4;
+		    border-radius: 50%;
+		    width: 85%;
+		    height: 85%;
+		    display: block;
+		    margin: auto;
+		    position: absolute;
+		    top: 8%;
+		    left: 8%;
+		    z-index: 3;
+		    animation: 2s pulseBtn infinite;
+	    }
+    }
+
+    &-sm {
+	    position: absolute;
+	    top: 10%;
+	    z-index: 2;
+	    display: block;
+	    width: 15px;
+	    height: 15px;
+	    margin: auto;
+    	border-radius: 50%;
+
+    	&--red {
+    		background: #FC2243;
+		    left: 50%;
+    	}
+
+    	&--green {
+		    background: #58BB69;
+		    left: 65%;
+    	}
+
+    	&--yellow {
+		    background: #FFCF54;
+		    left: 80%;
+    	}
+    }
+	}
+
+	&__item {
+		margin: @grid-gutter-width/2 0;
+		padding: 20px;
+		background: #E6E6E6;
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		border-radius: 10px;
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		position: relative;
+		padding: 20px;
+		background-color: #fff;
+		border: 3px solid #494949;
+		border-radius: 10px;
+	}
+	
+	&__comparing {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		width: 20px;
+		height: 20px;
+	}
+
+	&__btn {
+
+		&-add {
+			width: 20px;
+			height: 20px;
+			padding: 0;
+			border: 0;
+			background: transparent;
+			outline: none;
+			cursor: pointer;
+
+			&::before,
+			&::after {
+				content: '';
+				position: absolute;
+				background-color: #58BB69;
+				border-radius: 2px;
+				transition: background .3s;
+			}
+
+			&::before {
+				top: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 4px;
+				height: 100%;
+			}
+
+			&::after {
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+				width: 100%;
+				height: 4px;
+			}
+
+			&:hover {
+
+				&::before,
+				&::after {
+					background-color: darken(#58BB69, 20%);
+				}
+			}
+		}
+
+		&-remove {
+			width: 20px;
+			height: 20px;
+			padding: 0;
+			border: 0;
+			background: transparent;
+			outline: none;
+			transform: rotateZ(45deg);
+			cursor: pointer;
+
+			&::before,
+			&::after {
+				content: '';
+				position: absolute;
+				background-color: #FC2243;
+				border-radius: 2px;
+				transition: background .3s;
+			}
+
+			&::before {
+				top: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 4px;
+				height: 100%;
+			}
+
+			&::after {
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+				width: 100%;
+				height: 4px;
+			}
+
+			&:hover {
+
+				&::before,
+				&::after {
+					background-color: darken(#FC2243, 20%);
+				}
+			}
+		}
+	}
+
+	&__img {
+		width: 100%;
+
+		&-wrapper {
+			width: 20%;
+		}
+	}
+
+	&__text {
+
+		&-wrapper {
+			width: 80%;
+			padding-left: 20px;
+			color: #494949;
+		}
+	}
+
+	&__id {
+		margin-bottom: round(5/14rem, 3);
+		.fz(14, 18);
+		font-weight: 700;
+	}
+
+	&__name {
+		margin-bottom: round(5/18rem, 3);
+		.fz(18, 22);
+		text-transform: capitalize;
+		font-weight: 700;
+
+		span {
+			font-weight: 400;
+		}
+	}
+
+	&__characters {
+		font-weight: 700;
+		text-transform: capitalize;
+		
+		span {
+			font-weight: 400;
+			text-transform: capitalize;
+		}
+	}
+
+	&__pagination {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		align-items: center;
+		padding-top: 10px;
+	}
+
+	&__arrow {
+		position: relative;
+		width: 40px;
+		height: 40px;
+		padding: 0;
+		border: 0;
+		background: transparent;
+		outline: none;
+		cursor: pointer;
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 0;
+			height: 0;
+			border-style: solid;
+			transition: border .3s ease;
+		}
+
+		&--prev {
+			&::after {
+				border-width: 15px 25px 15px 0;
+				border-color: transparent #ffcf54 transparent transparent;
+			}
+
+			&:hover {
+				&::after {
+					border-color: transparent lighten(#ffcf54, 10%) transparent transparent;
+				}
+			}
+		}
+
+		&--next {
+			&::after {
+				border-width: 15px 0 15px 25px;
+				border-color: transparent transparent transparent #ffcf54;
+			}
+
+			&:hover {
+				&::after {
+					border-color: transparent transparent transparent lighten(#ffcf54, 10%);
+				}
+			}
+		}
+
+		&--disabled {
+			pointer-events: none;
+
+			&.c-pokemon__arrow {
+
+				&--prev {
+					&::after {
+						border-color: transparent fade(#ffcf54, 20%) transparent transparent;
+					}
+				}
+
+				&--next {
+					&::after {
+						border-color: transparent transparent transparent fade(#ffcf54, 20%);
+					}
+				}
+			}
+		}
+	}
+
+	&__input {
+		width: 50px;
+		padding: 5px;
+		border: 0;
+		border-radius: 5px;
+		outline: none;
+		font-family: @base-font;
+		.fz(14, 14);
+	}
+
+	&__goto {
+		color: #fff;
+	}
+
+	&__compare {
+
+		&-wrapper {
+			white-space: nowrap;
+			overflow-x: auto;
+		}
+
+		&-item {
+			display: inline-block;
+			vertical-align: top;
+			width: 300px;
+			margin-right: 20px;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		&-content {
+			position: relative;
+			padding: 20px;
+			background-color: #fff;
+			border: 3px solid #494949;
+			border-radius: 10px;
+			white-space: normal;
+
+			.c-pokemon__img-wrapper {
+				width: 50%;
+				min-height: 110px;
+				margin: 0 auto;
+			}
+
+			.c-pokemon__text-wrapper {
+				margin-bottom: 30px;
+				padding-left: 0;
+			}
+
+			.c-pokemon__btn-remove {
+				display: block;
+				margin: 0 auto;
+			}
+		}
+	}
+
+	&-compare {
+
+		&__control {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		&__btn {
+			display: block;
+			padding: 10px 20px;
+			background-color: transparent;
+			border: 2px solid #fff;
+			border-radius: 5px;
+			outline: none;
+			.fz(16, 20);
+			font-weight: 700;
+			font-family: @base-font;
+			color: #fff;
+			text-decoration: none;
+			cursor: pointer;
+		}
+	}
+}
+
+@keyframes pulseBtn {
+	0% {
+		background: #71CDF4;
+	}
+
+	50% {
+		background: darken(#71CDF4, 20%);
+	}
+
+	100% {
+		background: #71CDF4;
+	}
+}
